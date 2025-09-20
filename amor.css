@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #ff9aa2, #ffd1dc);
+    font-family: 'Dancing Script', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.cake-container {
+    position: relative;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.layer {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, #f4c7b0, #f4a261);
+    border-radius: 15px;
+    margin: 2px 0;
+    position: absolute;
+    bottom: 0;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.layer:nth-child(1) { height: 50px; bottom: 0; }
+.layer:nth-child(2) { height: 50px; bottom: 52px; }
+.layer:nth-child(3) { height: 50px; bottom: 104px; }
+
+.layer::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    right: 10px;
+    height: 5px;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.candle {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 90px;
+    background: linear-gradient(to top, #ffffff, #f0e68c, #d3a62f);
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.flame {
+    position: absolute;
+    top: -20px;
+    width: 15px;
+    height: 20px;
+    background: linear-gradient(to top, #ffeb3b, #ff9800);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 0.5s infinite alternate;
+}
+
+.dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 4s infinite;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#playButton {
+    background-color: #c2185b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#playButton:hover {
+    background-color: #a01549;
+    transform: translateY(-2px);
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.2); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes flicker {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.3); }
+}
+
+#message {
+    width: 35%;
+    font-size: 1em;
+    color: #c2185b;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 200PX;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+p {
+    margin: 10px 0;
+}
